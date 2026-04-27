@@ -1,0 +1,203 @@
+:root {
+    --primary: #1c5766;
+    --accent: #4a9fb0;
+    --bg-light: #f4f7f8;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* CONTENEDOR TIPO HOJA A4 */
+.resume-container {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--white);
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* COLUMNA IZQUIERDA */
+.main-column {
+    flex: 1.6;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Elimina huecos abajo */
+}
+
+.main-title {
+    color: var(--primary);
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 0 15px 0;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.profile-desc { font-size: 0.95rem; line-height: 1.5; color: #444; }
+
+.destacado-box {
+    background: #f9f9f9;
+    padding: 15px;
+    border-left: 5px solid var(--primary);
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.destacado-box h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--primary); }
+.destacado-box ul { padding-left: 20px; margin: 0; font-size: 0.85rem; color: #555; }
+.destacado-box li { margin-bottom: 5px; }
+
+/* HABILIDADES */
+.skills-section-main h3 { font-size: 1rem; color: var(--primary); margin-bottom: 15px; }
+.skills-grid-main { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+    background: #eef5f6;
+    color: var(--primary);
+    border: 1px solid #d1e2e5;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* EXPERIENCIA */
+.experiencia h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 1px solid #eee; margin-top: 30px; }
+.job { margin-bottom: 20px; }
+.job h3 { font-size: 1rem; margin: 0; color: #222; }
+.job .date { font-size: 0.8rem; color: var(--accent); font-weight: bold; }
+.job ul { padding-left: 18px; margin-top: 8px; font-size: 0.85rem; color: #666; }
+
+/* COLUMNA DERECHA (SIDEBAR) */
+.sidebar {
+    flex: 1;
+    background: var(--primary);
+    color: var(--white);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-photo {
+    width: 180px; /* Aumentamos de 140px a 180px */
+    height: 180px;
+    border-radius: 50%;
+    border: 6px solid rgba(255,255,255,0.2);
+    margin: 10px auto 40px auto; /* Reducimos margen superior para subir la foto */
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.fortalezas-list { padding: 0; list-style: none; font-size: 0.85rem; }
+.fortalezas-list li { margin-bottom: 10px; }
+.fortalezas-list li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
+
+.edu-item { margin-bottom: 15px; }
+.edu-item h3 { font-size: 0.9rem; margin: 0; }
+.edu-item p { font-size: 0.8rem; margin: 2px 0; color: #b2dfdb; }
+
+.contact-info p { font-size: 0.85rem; margin-bottom: 10px; }
+
+/* BOTÓN DESCARGA */
+.download-section {
+    text-align: center;
+    padding: 20px 0;
+    background: #e0e0e0; /* Mismo color del fondo de la página */
+}
+
+.btn-download {
+    background: #1c5766; /* Tu color primario */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+.btn-download:hover {
+    background: #4a9fb0;
+}
+
+/* AJUSTES PARA IMPRIMIR */
+@media print {
+    /* 1. Eliminamos márgenes del navegador para ganar espacio */
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact; /* Fuerza la impresión de colores */
+        print-color-adjust: exact;
+    }
+
+    /* 2. Forzamos el contenedor a ser una caja fija de una sola hoja */
+    .resume-container {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important; /* Mantiene las dos columnas juntas */
+        flex-direction: row !important;
+        overflow: hidden !important; /* No permite que nada se pase a la hoja 2 */
+        box-shadow: none;
+    }
+
+    /* 3. Aseguramos que el Sidebar ocupe todo el alto y mantenga su color */
+    .sidebar {
+        height: 100% !important;
+        background-color: #1c5766 !important;
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 4. La columna principal también ocupa el alto total */
+    .main-column {
+        height: 100% !important;
+        flex: 1.6 !important;
+    }
+
+    /* 5. Ocultamos el botón de descarga para que no salga en el PDF */
+    .download-section, .btn-download {
+        display: none !important;
+    }
+
+    /* 6. Ajuste fino: Reducimos un poco los espacios internos para asegurar el encaje */
+    .main-column, .sidebar {
+        padding: 25px !important;
+    }
+}
+
+/* AJUSTE PARA WEB */
+@media (max-width: 800px) {
+    .resume-container { width: 100%; flex-direction: column; }
+    .sidebar { order: -1; }
+}
