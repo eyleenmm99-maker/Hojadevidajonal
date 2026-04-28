@@ -85,27 +85,26 @@ body {
     flex: 1;
     background: var(--primary);
     color: var(--white);
-    padding: 40px 30px;
+    padding: 30px 20px; /* Reducimos un poco el padding lateral para dar espacio a la foto grande */
     display: flex;
     flex-direction: column;
-    /* CAMBIO AQUÍ */
-    justify-content: flex-start; /* Cambiado de space-between a flex-start */
-    gap: 20px; /* Añadimos separación entre las secciones del sidebar */
+    justify-content: flex-start;
+    gap: 20px;
+
 
 }
 
 .profile-photo {
-    width: 180px; 
-    height: 180px;
+    width: 220px; /* Aumentado de 180px a 220px */
+    height: 220px; /* Aumentado de 180px a 220px */
     border: 6px solid rgba(255,255,255,0.2);
-    margin: 10px auto 40px auto; 
+    margin: 0 auto 30px auto; /* Reducimos el margen superior a 0 y el inferior a 30px */
     overflow: hidden;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* CAMBIOS AQUÍ */
-    border-radius: 8px; /* Cambiado de 50% a 8px para esquinas suavizadas, pon 0 si la quieres totalmente cuadrada */
+    border-radius: 8px; /* Mantiene las esquinas suavemente redondeadas */
 }
 
 .profile-img {
