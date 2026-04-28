@@ -32,7 +32,9 @@ body {
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Elimina huecos abajo */
+    /* CAMBIO AQUÍ */
+    justify-content: flex-start; /* Cambiado de space-between a flex-start para que el contenido se pegue arriba */
+    gap: 15px; /* Añadimos una separación pequeña y controlada entre secciones */
 }
 
 .main-title {
@@ -86,20 +88,24 @@ body {
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* CAMBIO AQUÍ */
+    justify-content: flex-start; /* Cambiado de space-between a flex-start */
+    gap: 20px; /* Añadimos separación entre las secciones del sidebar */
+
 }
 
 .profile-photo {
-    width: 180px; /* Aumentamos de 140px a 180px */
+    width: 180px; 
     height: 180px;
-    border-radius: 50%;
     border: 6px solid rgba(255,255,255,0.2);
-    margin: 10px auto 40px auto; /* Reducimos margen superior para subir la foto */
+    margin: 10px auto 40px auto; 
     overflow: hidden;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* CAMBIOS AQUÍ */
+    border-radius: 8px; /* Cambiado de 50% a 8px para esquinas suavizadas, pon 0 si la quieres totalmente cuadrada */
 }
 
 .profile-img {
